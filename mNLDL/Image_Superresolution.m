@@ -1,17 +1,19 @@
 function [im PSNR SSIM s_output]=Image_Superresolution(psf,scale,patch_size,layer,Output_dir,Test_image_dir,image_name,image_expandedname)
-
+%% 参数设置初始化
 par.tau=0.08;
 par.lamada=7;
 par.scale=scale;
 par.psf=psf;
-par.nIter=960;
-par.eps=2e-6;
-par.nblk=5;
+par.nIter=120;%迭代次数120（高斯模糊核100次迭代以后MSE下降缓慢）
+par.eps=2e-6;%这个参数目前不知道什么意思
+par.nblk=5;%这个也不知道
 par.patch_size=patch_size;
 par.layer=layer;
 
 par.I=double(imread(fullfile(Test_image_dir,strcat(image_name,image_expandedname))));
+%% 低分辨率图像由高分辨率图像经过psf模糊得到
 LR=Blur(par.I,par.psf);
+
 LR=LR(1:par.scale:end,1:par.scale:end,:);
 par.LR=LR;
 LLR=Blur(par.LR,par.psf);
