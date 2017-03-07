@@ -5,21 +5,25 @@ par.lamada=7;
 par.scale=scale;
 par.psf=psf;
 par.nIter=120;%迭代次数120（高斯模糊核100次迭代以后MSE下降缓慢）
-par.eps=2e-6;%这个参数目前不知道什么意思
-par.nblk=5;%这个也不知道
+par.eps=2e-6;                                                               %这个参数目前不知道什么意思？
+par.nblk=5;                                                                 %这个也不知道？
 par.patch_size=patch_size;
 par.layer=layer;
 
 par.I=double(imread(fullfile(Test_image_dir,strcat(image_name,image_expandedname))));
 %% 低分辨率图像由高分辨率图像经过psf模糊得到
+%第一层模糊图像
 LR=Blur(par.I,par.psf);
-
-LR=LR(1:par.scale:end,1:par.scale:end,:);
+LR=LR(1:par.scale:end,1:par.scale:end,:);%低分辨率图像由高分辨率图像模糊+降采样得到
 par.LR=LR;
+%所以说这个降采样还是有点Low的...
+%也不能这么说，Matlab的降采样是做插值的，这里直接降采样。
+%得到第二层模糊的图像
 LLR=Blur(par.LR,par.psf);
 LLR=LLR(1:par.scale:end,1:par.scale:end,:);
 par.LLR=LLR;
-par.B=Set_blur_matrix(par);
+
+par.B=Set_blur_matrix(par);                                                 %这个函数没搞懂具体干了什么
 X=Get_pyramid_patches(par);
 [par.KSVD_D,gamma,err]=Dictionary_train(X,par);
 s_output.Dic=par.KSVD_D;
@@ -82,3 +86,4 @@ s_output.psnr_mnldl=PSNR;
 s_output.ssim_nn=SSIMNN;
 s_output.ssim_bic=SSIMBic;
 s_output.ssim_mnldl=SSIM;
+end

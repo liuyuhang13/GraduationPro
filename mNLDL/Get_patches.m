@@ -1,15 +1,15 @@
 function  [Py  Px]  =  Get_patches( im, b, s, psf )
 
 [h w ch]  =  size(im);
-ws        =  floor( size(psf,1)/2 );
+ws        =  floor( size(psf,1)/2 );    %3
 
 if  ch==3
-    lrim      =  rgb2ycbcr( uint8(im) );
+    lrim      =  rgb2ycbcr( uint8(im) );    %还是把RGB转到亮度一个通道去处理
     im        =  double( lrim(:,:,1));    
 end
 
 lp_im     =  conv2( psf, im );
-lp_im     =  lp_im(ws+1:h+ws, ws+1:w+ws);
+lp_im     =  lp_im(ws+1:h+ws, ws+1:w+ws);   %感觉这里边缘海是没有处理好，边缘一到两个像素是黑的，不知道是否有影响 
 hp_im     =  im - lp_im;
 
 N         =  h-b+1;
