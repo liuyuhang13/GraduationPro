@@ -1,18 +1,18 @@
 function [im_out PSNR SSIM psnr_array ssim_array]   =  mNLDL_Superresolution( par )
 
-s           =   par.scale;
+s           =   par.scale;      %尺寸变化倍数
 lr_im       =   par.LR;
 [lh lw ch]  =   size(lr_im);
-hh          =   lh*s;
-hw          =   lw*s;
+hh          =   lh*s;           %高分辨率图的高
+hw          =   lw*s;           %高分辨率图的宽
  
 par.step    =   2;
 par.tau     =   par.tau;
  
-hrim        =   uint8(zeros(hh, hw, ch));
+hrim        =   uint8(zeros(hh, hw, ch));%预先分配高分辨率图空间
 ori_im      =   zeros(hh,hw);
  
-if  ch == 3
+if  ch == 3         %所有ch==3的判断都是考虑rgb图，但是程序有错误，所以以后再改正
     lrim           =  rgb2ycbcr( uint8(lr_im) );
     lrim           =  double( lrim(:,:,1));
     
@@ -54,7 +54,7 @@ return;
 
 function [hr_im,psnr_array,ssim_array]  = Superresolution( lr_im, par, ori_im )
 
-hr_im     =   imresize( lr_im, par.scale, 'bicubic' );
+hr_im     =   imresize( lr_im, par.scale, 'bicubic' );% 先双三次插值得到初始高分辨率图
 [h   w]   =   size(hr_im);
 [h1 w1]   =   size(ori_im);
 

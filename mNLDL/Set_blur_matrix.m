@@ -19,7 +19,7 @@ C          =   zeros(nt,1);
 V          =   zeros(nt,1);
 cnt        =   1;
  
-pos     =  (1:hh*hw);          
+pos     =  (1:N);          
 pos     =  reshape(pos, [hh hw]); %reshape函数列优先，就是先填满第一列，再第二列。也就是说第一维先增加，再按第二维增加
  
 %% 低分辨率高分辨率坐标变换

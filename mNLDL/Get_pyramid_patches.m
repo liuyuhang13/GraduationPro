@@ -19,15 +19,15 @@ dscale=linspace(1,par.scale,par.layer);
 for k=1:length(dscale)
     dh=round(h/dscale(k));
     dw=round(w/dscale(k));
-    im=imresize(par.LR,[dh dw],'bicubic');
+    im=imresize(par.LR,[dh dw],'bicubic');                                  %所以我觉得这里psf是要变大小的，不能所有层都用原来的大小吧？
     [Py Px]=Get_patches(im,b,s,par.psf);    
     X=[X,Px];
-    Y=[Y,Py];
+    Y=[Y,Py];                                                               %X是降采样图像块，Y是降采样图像块减去模糊后图像块
 end
 
 m=mean(Y);
 d=(Y-repmat(m, size(Y,1), 1)).^2;
 v=sqrt(mean(d));
-[a,idx]=find(v>=delta);         %找到某些值大于delta的列，就是一些图像块的脚标，这些图像块就是最后返回的
+[a,idx]=find(v>=delta);         %找到某些值大于delta的列，就是一些图像块的脚标，这些图像块就是最后返回的，也就是说找图像块变化比较大的，不是平坦的图像块
 X=X(:,idx);
 end

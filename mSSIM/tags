@@ -1,0 +1,46 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5	//
+Blur	Blur.m	/^function z=Blur(x,psf)$/;"	f
+Compute_NLM_Matrix	Compute_NLM_Matrix.m	/^function  [mW] =  Compute_NLM_Matrix( im, ws, par )$/;"	f
+CreateDataFromDictionarySimple	KSVD_Matlab_ToolBox/demo3.m	/^function [D,xOrig] = CreateDataFromDictionarySimple(dictionary, numElements, numCoef,positiveFlag)$/;"	f
+CreateDataFromDictionarySimple	KSVD_Matlab_ToolBox/gererateSyntheticDictionaryAndData.m	/^function [D,xOrig] = CreateDataFromDictionarySimple(dictionary, numElements, numCoef)$/;"	f
+Dictionary_Training	Dictionary_Training.m	/^function KSVD_D=Dictionary_Training(par)$/;"	f
+Get_patches	Get_patches.m	/^function  Px  =  Get_patches( im, b, psf )$/;"	f
+I_clearDictionary	KSVD_Matlab_ToolBox/KSVD.m	/^function Dictionary = I_clearDictionary(Dictionary,CoefMatrix,Data)$/;"	f
+I_clearDictionary	KSVD_Matlab_ToolBox/KSVD_NN.m	/^function Dictionary = I_clearDictionary(Dictionary,CoefMatrix,Data)$/;"	f
+I_findBetterDictionaryElement	KSVD_Matlab_ToolBox/KSVD.m	/^function [betterDictionaryElement,CoefMatrix,NewVectorAdded] = I_findBetterDictionaryElement(Data,Dictionary,j,CoefMatrix,numCoefUsed)$/;"	f
+I_findBetterDictionaryElement	KSVD_Matlab_ToolBox/KSVD_NN.m	/^function [betterDictionaryElement,CoefMatrix,NewVectorAdded] = I_findBetterDictionaryElement(Data,Dictionary,j,CoefMatrix,numCoefUsed)$/;"	f
+I_findDistanseBetweenDictionaries	KSVD_Matlab_ToolBox/KSVD.m	/^function [ratio,totalDistances] = I_findDistanseBetweenDictionaries(original,new)$/;"	f
+I_findDistanseBetweenDictionaries	KSVD_Matlab_ToolBox/KSVD_NN.m	/^function [ratio,totalDistances] = I_findDistanseBetweenDictionaries(original,new)$/;"	f
+I_findDistanseBetweenDictionaries	KSVD_Matlab_ToolBox/MOD.m	/^function [ratio,totalDistances] = I_findDistanseBetweenDictionaries(original,new)$/;"	f
+Image_Superresolution	Image_Superresolution.m	/^function [im PSNR SSIM]=Image_Superresolution(psf,scale,Output_dir,Test_image_dir,image_name)$/;"	f
+Implement_Superresolution	Implement_Superresolution.m	/^function [im_out PSNR SSIM]   =  Implement_Superresolution( par )$/;"	f
+Iter_Shri	Iter_Shri.m	/^function im_out=Iter_Shri(im,par,Arr,Wei)$/;"	f
+KSVD	KSVD_Matlab_ToolBox/KSVD.m	/^function [Dictionary,output] = KSVD(...$/;"	f
+KSVD_NN	KSVD_Matlab_ToolBox/KSVD_NN.m	/^function [Dictionary,output] = KSVD_NN(...$/;"	f
+MOD	KSVD_Matlab_ToolBox/MOD.m	/^function [Dictionary,output] = MOD(Data,param)$/;"	f
+NN_BP	KSVD_Matlab_ToolBox/NN_BP.m	/^function coefMatrix = NN_BP(Data,D,maxCoef,coefMatrix)$/;"	f
+OMP	KSVD_Matlab_ToolBox/OMP.m	/^function [A]=OMP(D,X,L); $/;"	f
+OMPerr	KSVD_Matlab_ToolBox/OMPerr.m	/^function [A]=OMPerr(D,X,errorGoal); $/;"	f
+Set_blur_matrix	Set_blur_matrix.m	/^function  A   =  Set_blur_matrix( par )$/;"	f
+Superresolution	Implement_Superresolution.m	/^function hr_im  = Superresolution( lr_im, par, ori_im )$/;"	f
+cal_ssim	cal_ssim.m	/^function ssim  =  cal_ssim( im1, im2, b_row, b_col )$/;"	f
+calcNoiseFromSNR	KSVD_Matlab_ToolBox/demo3.m	/^function actualNoise = calcNoiseFromSNR(TargerSNR, signal, randomNoise)$/;"	f
+calcNoiseFromSNR	KSVD_Matlab_ToolBox/gererateSyntheticDictionaryAndData.m	/^function  actualNoise = calcNoiseFromSNR(TargerSNR, signal, randomNoise)$/;"	f
+calcSNR	KSVD_Matlab_ToolBox/gererateSyntheticDictionaryAndData.m	/^function SNR = calcSNR(origSignal, noisySignal)$/;"	f
+csnr	csnr.m	/^function s=csnr(A,B,row,col)$/;"	f
+demo3	KSVD_Matlab_ToolBox/demo3.m	/^function demo3()$/;"	f
+denoiseImageDCT	KSVD_Matlab_ToolBox/denoiseImageDCT.m	/^function [IOut,output] = denoiseImageDCT(Image,sigma,K,varargin)$/;"	f
+denoiseImageGlobal	KSVD_Matlab_ToolBox/denoiseImageGlobal.m	/^function [IOut,output] = denoiseImageGlobal(Image, sigma, varargin)$/;"	f
+denoiseImageKSVD	KSVD_Matlab_ToolBox/denoiseImageKSVD.m	/^function [IOut,output] = denoiseImageKSVD(Image,sigma,K,varargin)$/;"	f
+displayDictionaryElementsAsImage	KSVD_Matlab_ToolBox/displayDictionaryElementsAsImage.m	/^function I = displayDictionaryElementsAsImage(D, numRows, numCols,X,Y,sortVarFlag)$/;"	f
+find_blks	find_blks.m	/^function [blk_arr, wei_arr]  =  find_blks(im, par)$/;"	f
+gererateSyntheticDictionaryAndData	KSVD_Matlab_ToolBox/gererateSyntheticDictionaryAndData.m	/^function [Dictionary, data, coefs] = gererateSyntheticDictionaryAndData(N, L, dim, K, SNRdB)$/;"	f
+grams	grams.m	/^function [Q, R] = grams(A)$/;"	f
+my_im2col	KSVD_Matlab_ToolBox/my_im2col.m	/^function [blocks,idx] = my_im2col(I,blkSize,slidingDis);$/;"	f
+soft	soft.m	/^function y = soft(x,tau)$/;"	f
+ssim_index	cal_ssim.m	/^function [mssim, ssim_map] = ssim_index(img1, img2, K, window, L)$/;"	f
