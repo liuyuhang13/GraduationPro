@@ -1,4 +1,21 @@
+
+超分：
 ScSr: 基于稀疏表示的超分辨率方法 分别构建与高、低分辨率对应的两个字典【52】（只利用了稀疏性）
+Yang J, Wright J, Huang T S, et al. Image super-resolution via sparse representation[J]. IEEE
+Transactions on Image Processing, 2010, 19(11): 2861-2873.
 SISR：单幅图相超分辨率方法 方法在图像金字塔中搜索多尺度相似图像块，并利用相似图像块的线性组合估计重建图像块【64】（只利用了自相似性）
 ASDSAR： 基于自适应稀疏字典选取与正则化 利用K-means聚类图像库中图像块构建字典【67】
 mSSIM：基于多尺度结构自相似性的超分辨率方法 金字塔作为字典学习样本，利用相同尺度相似图像块构建非局部约束项【70】
+
+
+
+
+模糊核求解：
+边缘增强：
+1.Joshi N, Szeliski R, Kriegman D J. PSF estimation using sharp edge prediction. In: Proceedings of 2008 IEEE
+Conference on Computer Vision and Pattern Recognition. Anchorage, AK: IEEE, 2008. 1-8
+2.Xu L, Jia J. Two-phase kernel estimation for robust motion deblurring. In: Proceedings of the 11th European
+Conference on Computer Vision. Heraklion, Crete, Greece:Springer Berlin Heidelberg, 2010. 157-170
+图像块先验：
+12.Li H, Zhang Y, Zhang H, Zhu Y, Sun J. Blind image deblurring based on sparse prior of dictionary pair. In: Pro-
+ceedings of the 21st International Conference on Pattern Recognition. Tsukuba: IEEE, 2012. 3054-3057
