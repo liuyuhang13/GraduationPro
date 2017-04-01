@@ -1,16 +1,31 @@
 %testofPatchRecurrence e.g. 7*7 patch
 %测试遥感图集中单幅图像同尺度或不同尺度相似图像块的存在性
+addpath('lib/TreeCANN_code_20121022')
+addpath('lib/TreeCANN_code_20121022/matlab_tools/ann_wrapper')
+addpath('lib/TreeCANN_code_20121022/C_code')
 %% 同尺度单幅图像的图像块相似性检测
 tic;
 Test_image_dir   =   'images';
-image_name = '2.1.05';
+image_name = '2.1.02';
 image_format = '.bmp';
 I = im2double(imread(sprintf('%s/%s%s',Test_image_dir, image_name, image_format)));
 patch_size = 7;
 img_size = size(I,1);
-img_patches = getPatches(I,patch_size,1);
+img_patches = get_Patches(I,patch_size,1);
+img_patches_var = var(img_patches);
+hist(img_patches_var,1000);
+flag = img_patches_var>0.01;
+img_patches_selected =img_patches(:,flag);
+figure;
+%认为方差大于0.01是方差较大的
+for x = 1:100
+    subplot(10,10,x);
+    imshow(reshape(img_patches_selected(:,x*5),7,7));
+end
 x_temp = size(img_patches);
-recurrence_num = zeros(x_temp(2),1);
+figure;
+imshow(I);
+
 %% 看一下图像块之间距离分布
 % % 
 % distance = zeros(x_temp(2),1);%分配空间
@@ -33,29 +48,29 @@ recurrence_num = zeros(x_temp(2),1);
 %         end
 %     end
 %% 一些相似图像块的示例
-spco  = searchSimilarPatches(194,226,img_patches,patch_size,img_size,1 );
-%2.0.01[375,114]
-figure;
-for index = 1:size(spco,1)
-    subplot(ceil(size(spco,1)/7),7,index);
-    imshow(reshape(img_patches(:,spco(index)),patch_size,patch_size));
-end
-
-I_labelled = I;
-d=1;
-num_of_each_row = floor((img_size - patch_size)/d)+1;   %每一行的图像块数目
-for index = 1:size(spco,1)
-    R = ceil(spco(index)/num_of_each_row);
-    C = (spco(index) - (R-1)*num_of_each_row -1)*d+1;
-    I_labelled (R-1,C-1:C+patch_size)=0;
-    I_labelled (R+patch_size,C-1:C+patch_size)=0;
-    I_labelled (R-1:R+patch_size,C-1) = 0;
-    I_labelled (R-1:R+patch_size,C+patch_size) = 0;
-end
-figure;
-subplot(1,2,1);
-imshow(I);
-subplot(1,2,2);
-imshow(I_labelled);
-toc;
-time = toc - tic;
+% spco  = searchSimilarPatches(194,226,img_patches,patch_size,img_size,1 );
+% %2.0.01[375,114]
+% figure;
+% for index = 1:size(spco,1)
+%     subplot(ceil(size(spco,1)/7),7,index);
+%     imshow(reshape(img_patches(:,spco(index)),patch_size,patch_size));
+% end
+% 
+% I_labelled = I;
+% d=1;
+% num_of_each_row = floor((img_size - patch_size)/d)+1;   %每一行的图像块数目
+% for index = 1:size(spco,1)
+%     R = ceil(spco(index)/num_of_each_row);
+%     C = (spco(index) - (R-1)*num_of_each_row -1)*d+1;
+%     I_labelled (R-1,C-1:C+patch_size)=0;
+%     I_labelled (R+patch_size,C-1:C+patch_size)=0;
+%     I_labelled (R-1:R+patch_size,C-1) = 0;
+%     I_labelled (R-1:R+patch_size,C+patch_size) = 0;
+% end
+% figure;
+% subplot(1,2,1);
+% imshow(I);
+% subplot(1,2,2);
+% imshow(I_labelled);
+% toc;
+% time = toc - tic;

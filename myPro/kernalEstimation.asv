@@ -63,7 +63,7 @@ for y = 1:x_temp(2)
     for x = 1:y_temp(2)
             distance(x) = sum((patch_r(:,x)-patch_Q(:,y)).^2);
     end
-    flag = find(distance<0.5);
+    flag = distance<0.5;
     patch_temp = patch_r(:,flag);
     if(size(patch_temp,2)<1)  similar_p(:,y)= zeros(49,1);
     else
@@ -72,10 +72,9 @@ for y = 1:x_temp(2)
         corr = corrcoef(patch_temp(:,x),patch_Q(:,y));
          R(x) = corr(1,2);
     end
-     index(y) = flag(find(R==max(R)));
      similar_p(:,y)= patch_temp(:,find(R==max(R)));
      similarity(y) = max(R);
-     
+     index(y) = 
     end
 end
 figure;
@@ -85,9 +84,6 @@ for x = 1:100
      subplot(10,20,2*x);
      imshow(reshape(similar_p(:,x),7,7));
 end
-
-
-
 % similar_p = patch_r(:,distance>0.9);
 % similar_p = patch_r(:,find(distance==max(distance)));
  toc;

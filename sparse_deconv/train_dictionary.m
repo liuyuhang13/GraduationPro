@@ -1,6 +1,6 @@
 function D_ksvd = Dictionary_train(X, patch_size)
 
-P = extract_patches(X, patch_size, 1);%抽图像块，间隔1像素，大小5*5,结果排成列向量，所以共33×33=1089列
+P = extract_patches(X, patch_size, 1);%抽图像块
 if size(P, 2) > 2000%图像块数目大于2000，随机排列取前2000个
     r = randperm(size(P, 2));
     P = P(:, r(1: 2000));
